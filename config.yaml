@@ -1,0 +1,15 @@
+lineages:
+  - A-H1N1pdm_HA
+  - A-H1N1pdm_NA
+  - A-H3N2_HA
+  - A-H3N2_NA
+  - B-Vic_HA
+  - B-Vic_NA
+
+tree_by_lineage:
+  "A-H1N1pdm_HA": https://nextstrain.org/seasonal-flu/h1n1pdm/ha/2y
+  "A-H1N1pdm_NA": https://nextstrain.org/seasonal-flu/h1n1pdm/na/2y
+  "A-H3N2_HA": https://nextstrain.org/seasonal-flu/h3n2/ha/2y
+  "A-H3N2_NA": https://nextstrain.org/seasonal-flu/h3n2/na/2y
+  "B-Vic_HA": https://nextstrain.org/seasonal-flu/vic/ha/2y
+  "B-Vic_NA": https://nextstrain.org/seasonal-flu/vic/na/2y
