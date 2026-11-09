@@ -1,13 +1,21 @@
+configfile: "config.yaml"
 print(config)
+
+rule all:
+    input:
+        expand("auspice/suggested_{lineage}.json", lineage=config["lineages"]),
 
 rule fetch_tree:
     output:
         "auspice/original_{lineage}.json"
     params:
-        url= config["tree_url"]
+        url=lambda wildcards: config["tree_by_lineage"][wildcards.lineage],
     shell:
         """
-        curl {params.url} -o {output}
+        curl \
+            --compressed \
+            --header 'Accept: application/vnd.nextstrain.dataset.main+json' \
+            {params.url:q} > {output}
         """
 
 rule suggest_new_clades:
@@ -26,9 +34,3 @@ rule suggest_new_clades:
                         --weights {input.weights} \
                         --output {output}
         """
-
-
-rule all:
-    input:
-        expand("auspice/suggested_{lineage}.json",
-                lineage = ['A-H3N2_HA', 'A-H3N2_NA', 'B-Vic_HA'])

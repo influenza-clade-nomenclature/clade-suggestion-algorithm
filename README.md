@@ -3,6 +3,21 @@
 
 The general idea of this workflow is to fetch a current tree from Nextstrain that is already annotated with currently used clades, search for clusters in the tree that meet certain criteria (see below), and suggest the branches leading to these clusters as novel clades.
 
+## Quickstart
+
+Run the clade suggestion workflow with Nextstrain CLI (Conda or ambient runtimes) and the other lineage repositories cloned locally as sibling directories.
+Edit `config.yaml` to set the list of lineages to suggest new clades for or change the Nextstrain trees to use.
+
+```
+nextstrain build .
+```
+
+View trees with clade suggestions.
+
+```
+nextstrain view auspice
+```
+
 ## Clade naming criteria
 
 The purpose of this workflow is to be run at regular intervals and suggest new clades to a tree that already has annotation.
@@ -70,4 +85,3 @@ New clades are assigned by walking through the tree in pre-order (parents before
 The current value for the threshold in the influenza virus lineage assignment is $\theta=1.0$.
 This means any one score alone is insufficient to trigger a new lineage.
 But together with a phylogenetic score and the divergence contribution, the threshold can be crossed for a single HA1 mutation.
-
